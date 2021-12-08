@@ -11,7 +11,7 @@ export default function GifExpertApp() {
             <h2>GifExpertApp</h2>
             <AddCategory setCategories={setCategories}/>
             <hr/>
-            <ol>
+            <div>
                 {
                     categories.map(category =>
                         ( 
@@ -19,7 +19,7 @@ export default function GifExpertApp() {
                         ) 
                     )
                 }
-            </ol>
+            </div>
         </>
     )
 }
