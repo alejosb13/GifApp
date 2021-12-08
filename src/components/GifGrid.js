@@ -1,9 +1,15 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
+import GifItem from './GifItem'
 
 export const GifGrid = ({category}) => {
+    useEffect(()=>{
+        getGift()
+    },[])
+    
+    const [gifs, setGifs] = useState([])
     
     const getGift = async () =>{
-        const url = 'https://api.giphy.com/v1/gifs/search?api_key=loxEViF3I7FLloLWtUY05Qoz00mGVlHT&q=pepe&limit=25&offset=0&rating=g&lang=es'
+        const url = `https://api.giphy.com/v1/gifs/search?api_key=loxEViF3I7FLloLWtUY05Qoz00mGVlHT&q=OnePunchMan&limit=25&offset=0&rating=g&lang=es`
         const resp = await fetch(url)      
         const {data} = await resp.json()
         
@@ -16,14 +22,18 @@ export const GifGrid = ({category}) => {
                 url : img.images?.downsized_medium.url
             }
         })
+        setGifs(gifs)
         
-        console.log(gifs);
     }
-    getGift()
+
     return (
-        
-        <div>
+       <>
             <h3>{category}</h3>  
-        </div>
+            <div className="grid-card">
+                {
+                    gifs.map(gif => <GifItem key={gif.id} {...gif}  />) 
+                }
+            </div>
+       </>
     )
 }

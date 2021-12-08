@@ -4,14 +4,13 @@ import {GifGrid} from './components/GifGrid'
 
 
 export default function GifExpertApp() {
-    const [categories, setCategories] = useState(["OnePunchMan","DBZ","Invencible"])
+    const [categories, setCategories] = useState(["OnePunchMan"])
     
     return (
         <>
             <h2>GifExpertApp</h2>
             <AddCategory setCategories={setCategories}/>
             <hr/>
-            {/* <button onClick={handleClick}>Agregar</button> */}
             <ol>
                 {
                     categories.map(category =>
