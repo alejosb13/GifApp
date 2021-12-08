@@ -1,20 +1,15 @@
-import React,{useState,useEffect} from 'react'
+import React from 'react'
 import GifItem from './GifItem'
-import {getGift} from '../helpers/GetGifs'
+import {useFetchGifs} from '../hooks/useFetchGifs'
 
 export const GifGrid = ({category}) => {
-    useEffect(()=>{
-        // setGifs( async()=> await getGift(category) ).
-        getGift(category)
-        .then(setGifs);
-
-    },[category])
-    
-    const [gifs, setGifs] = useState([])
+    const {data:gifs,status} = useFetchGifs(category)
 
     return (
        <>
             <h3>{category}</h3>  
+            <h4>{status && <p>Cargando...</p>}</h4>  
+            
             <div className="grid-card">
                 {
                     gifs.map(gif => <GifItem key={gif.id} {...gif}  />) 
