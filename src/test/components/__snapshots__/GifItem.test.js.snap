@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renderiza correctamente 1`] = `
+<div
+  className="card animate__animated animate__fadeInDown"
+>
+  <img />
+  <p />
+</div>
+`;
+
+exports[`renders correctly 1`] = `
+<div
+  className="card animate__animated animate__fadeInDown"
+>
+  <img />
+  <p />
+</div>
+`;
